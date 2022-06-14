@@ -7,13 +7,13 @@ import { UserserviceService } from '../userservice.service';
   styleUrls: ['./add-user.component.css'],
 })
 export class AddUserComponent implements OnInit {
-  username!: string;
+  name!: string;
   age: any;
   constructor(private userserviceservice:UserserviceService) { }
 
   ngOnInit(): void {
   }
   onAdduser(){
-      this.userserviceservice.adduser(this.username,this.age)
+      this.userserviceservice.adduser(this.name,this.age)
   }
 }
