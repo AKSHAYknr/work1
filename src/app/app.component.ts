@@ -8,10 +8,11 @@ import { UserserviceService } from './userservice.service';
 })
 export class AppComponent {
   title = 'work1';
-  users : {name:string,age:any}[] = [];
-  constructor(private userserviceService:UserserviceService) {}
+  users : {name:any,age:any}[] = [];
+  constructor(public userserviceService:UserserviceService) {}
   ngOnInit(){
 
-    this.users = this.userserviceService.users;
+    //this.users= this.userserviceService.users;
+    this.userserviceService.users.subscribe(user =>this.users.push(user));
   }
 }

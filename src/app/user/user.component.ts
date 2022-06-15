@@ -8,19 +8,24 @@ import { UserserviceService } from '../userservice.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
- @Input() user!: { name: string; age: any; };
- users = [{name:"",age:""}];
+ users = [{name:"",age:""}]
  
   constructor(private UserserviceService:UserserviceService) {
-    this.users=this.UserserviceService.getdata();
+    
    }
-   updatelist(name:string,age:any){
-    this.UserserviceService.adduser(name,age);
-    this.dataSource = new MatTableDataSource<any>(this.users);
-  }
-  public dataSource = new MatTableDataSource<any>([])
-  displayedColumns: string[]=['name','age'];
-  ngOnInit(): void {
-  }
 
+ 
+  ngOnInit(): void {
+    this.UserserviceService.receiveuser().subscribe((data)=>{
+      this.users.push(data);
+      this.dataSource = new MatTableDataSource<any>(this.users);
+    });
+  }
+  displayedColumns: string[] = ['name','age'];
+  public dataSource= new MatTableDataSource<any>([]);
+
+}
+export interface Element{
+  name:any;
+  age:any;
 }
