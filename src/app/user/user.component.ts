@@ -1,6 +1,7 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserserviceService } from '../userservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -10,7 +11,7 @@ import { UserserviceService } from '../userservice.service';
 export class UserComponent implements OnInit {
  users = [{name:"",age:""}]
  
-  constructor(private UserserviceService:UserserviceService) {
+  constructor(private UserserviceService:UserserviceService,private route:Router) {
     
    }
 
@@ -23,6 +24,10 @@ export class UserComponent implements OnInit {
   }
   displayedColumns: string[] = ['name','age'];
   public dataSource= new MatTableDataSource<any>([]);
+
+  add(){
+    this.route.navigate(['add-user'])
+  }
 
 }
 export interface Element{

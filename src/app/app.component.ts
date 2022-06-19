@@ -12,7 +12,6 @@ export class AppComponent {
   constructor(public userserviceService:UserserviceService) {}
   ngOnInit(){
 
-    //this.users= this.userserviceService.users;
     this.userserviceService.users.subscribe(user =>this.users.push(user));
   }
 }

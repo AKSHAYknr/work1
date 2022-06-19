@@ -14,6 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,7 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,MatButtonModule
   ],
   providers: [UserserviceService],
   bootstrap: [AppComponent]
